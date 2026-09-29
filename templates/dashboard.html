@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Risk Dashboard</title>
+</head>
+<body>
+    <h1>Machine Risk Dashboard</h1>
+
+    <br>
+
+    <a href="/machines">
+        Manage Machines
+    </a>
+
+    |
+
+    <a href="/predictions">
+        Prediction History
+    </a>
+
+    <br><br>
+
+    <hr>
+
+    <h2>Summary</h2>
+
+    <p>
+        <strong>Total Machines:</strong>
+        {{ total_machines }}
+    </p>
+
+    <p>
+        <strong>Low Risk:</strong>
+        {{ low_risk }}
+    </p>
+
+    <p>
+        <strong>Medium Risk:</strong>
+        {{ medium_risk }}
+    </p>
+
+    <p>
+        <strong>High Risk:</strong>
+        {{ high_risk }}
+    </p>
+
+    <hr>
+
+    <h2>Recent Predictions</h2>
+
+    <table border="1">
+
+        <tr>
+
+            <th>ID</th>
+            <th>Machine ID</th>
+            <th>Temperature</th>
+            <th>Pressure</th>
+            <th>Vibration</th>
+            <th>Risk</th>
+            <th>Date</th>
+
+        </tr>
+
+        {% for prediction in recent_predictions %}
+
+        <tr>
+
+            <td>
+                {{ prediction.id }}
+            </td>
+
+            <td>
+                {{ prediction.machine_id }}
+            </td>
+
+            <td>
+                {{ prediction.temperature }}
+            </td>
+
+            <td>
+                {{ prediction.pressure }}
+            </td>
+
+            <td>
+                {{ prediction.vibration }}
+            </td>
+
+            <td>
+                {{ prediction.risk }}
+            </td>
+
+            <td>
+                {{ prediction.created_at }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

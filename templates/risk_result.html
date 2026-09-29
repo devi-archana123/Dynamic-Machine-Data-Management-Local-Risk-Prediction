@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Prediction</title>
+</head>
+<body>
+    <h1>Machine Risk Prediction</h1>
+
+    <h2>Machine Information</h2>
+
+    <p>
+        <strong>Machine ID:</strong>
+        {{ machine.id }}
+    </p>
+
+    <p>
+        <strong>Machine Name:</strong>
+        {{ machine.data.get("Machine Name") }}
+    </p>
+
+    <p>
+        <strong>Temperature:</strong>
+        {{ machine.data.get("Temperature") }}
+    </p>
+
+    <p>
+        <strong>Pressure:</strong>
+        {{ machine.data.get("Pressure") }}
+    </p>
+
+    <p>
+        <strong>Vibration:</strong>
+        {{ machine.data.get("Vibration") }}
+    </p>
+
+    <hr>
+
+    {% if error %}
+
+        <h2>Prediction Error</h2>
+
+        <p>
+            {{ error }}
+        </p>
+
+    {% else %}
+
+        <h2>
+            Predicted Risk:
+            {{ risk }}
+        </h2>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/machines">
+        Back to Machines
+    </a>
+
+
+</body>
+</html>

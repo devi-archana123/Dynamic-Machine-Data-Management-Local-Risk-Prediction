@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machines</title>
+</head>
+<body>
+    <h1>Machine Records</h1>
+
+    <a href="/">Home</a>
+    <br><br>
+
+    <a href="/machines/add">Add New Machine</a>
+
+    <br><br>
+
+    <a href="/predictions">Prediction History</a>
+    <br><br>
+
+    <table border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Machine Data</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for machine in machines %}
+
+        <tr>
+
+            <td>
+                {{ machine.id }}
+            </td>
+
+            <td>
+                {{ machine.data }}
+            </td>
+
+            <td>
+                {{ machine.created_at }}
+            </td>
+
+            <td>
+
+                <a href="/machines/edit/{{ machine.id }}">
+                    Edit
+                </a>
+
+                |
+
+                <a href="/machines/delete/{{ machine.id }}">
+                    Delete
+                </a>
+                |
+
+                <a href="/machines/predict/{{ machine.id }}">
+                    Predict Risk
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

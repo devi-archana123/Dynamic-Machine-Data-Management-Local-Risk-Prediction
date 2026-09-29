@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Fields</title>
+</head>
+<body>
+    <h1>Machine Field Configuration</h1>
+
+    <a href="/">Home</a>
+
+    <br><br>
+
+    <a href="/fields/add">Add New Field</a>
+
+    <br><br>
+
+    <table border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Field Name</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Options</th>
+        </tr>
+
+        {% for field in fields %}
+
+        <tr>
+
+            <td>{{ field.id }}</td>
+
+            <td>{{ field.field_name }}</td>
+
+            <td>{{ field.field_type }}</td>
+
+            <td>
+                {% if field.required %}
+                    Yes
+                {% else %}
+                    No
+                {% endif %}
+            </td>
+
+            <td>{{ field.options or "-" }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</body>
+</html>

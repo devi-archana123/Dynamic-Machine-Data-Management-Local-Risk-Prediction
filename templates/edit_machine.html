@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Machine</title>
+</head>
+<body>
+    <h1>Edit Machine</h1>
+
+    <form method="POST">
+
+        {% for field in fields %}
+
+            <label>
+                {{ field.field_name }}
+            </label>
+
+            <br>
+
+            {% if field.field_type == "text" %}
+
+                <input
+                    type="text"
+                    name="{{ field.field_name }}"
+                    value="{{ machine.data.get(field.field_name, '') }}"
+                    {% if field.required %}required{% endif %}
+                >
+
+            {% elif field.field_type == "number" %}
+
+                <input
+                    type="number"
+                    name="{{ field.field_name }}"
+                    value="{{ machine.data.get(field.field_name, '') }}"
+                    {% if field.required %}required{% endif %}
+                >
+
+            {% elif field.field_type == "dropdown" %}
+
+                <select
+                    name="{{ field.field_name }}"
+                    {% if field.required %}required{% endif %}
+                >
+
+                    {% for option in field.options.split(",") %}
+
+                        <option
+                            value="{{ option }}"
+                            {% if option == machine.data.get(field.field_name) %}
+                                selected
+                            {% endif %}
+                        >
+                            {{ option }}
+                        </option>
+
+                    {% endfor %}
+
+                </select>
+
+            {% endif %}
+
+            <br><br>
+
+        {% endfor %}
+
+        <button type="submit">
+            Update Machine
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/machines">
+        Back to Machines
+    </a>
+
+</body>
+</html>

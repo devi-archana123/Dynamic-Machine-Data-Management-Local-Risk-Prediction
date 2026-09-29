@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Field</title>
+</head>
+<body>
+    <h1>Add Machine Field</h1>
+
+    <form method="POST">
+
+        <label>Field Name:</label>
+
+        <input
+            type="text"
+            name="field_name"
+            required
+        >
+
+        <br><br>
+
+
+        <label>Field Type:</label>
+
+        <select name="field_type">
+
+            <option value="text">
+                Text
+            </option>
+
+            <option value="number">
+                Number
+            </option>
+
+            <option value="dropdown">
+                Dropdown
+            </option>
+
+        </select>
+
+        <br><br>
+
+
+        <label>Required:</label>
+
+        <input
+            type="checkbox"
+            name="required"
+        >
+
+        <br><br>
+
+
+        <label>Dropdown Options:</label>
+
+        <input
+            type="text"
+            name="options"
+            placeholder="Low,Medium,High"
+        >
+
+        <br><br>
+
+
+        <button type="submit">
+            Add Field
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/fields">
+        Back to Fields
+    </a>
+
+</body>
+</html>
